@@ -4,7 +4,7 @@ import mediapipe as mp
 # Inizializza il modulo Face di MediaPipe per il face landmark detection
 mp_face_mesh = mp.solutions.face_mesh
 mp_drawing = mp.solutions.drawing_utils
-face_mesh = mp_face_mesh.FaceMesh(max_num_faces=1)
+face_mesh = mp_face_mesh.FaceMesh(max_num_faces=10)
 
 # Inizializza la cattura video dalla webcam (0 indica la prima webcam)
 cap = cv2.VideoCapture(0)

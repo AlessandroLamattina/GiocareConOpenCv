@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Inizializza il modulo MediaPipe per il rilevamento delle mani
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands()
+hands = mp_hands.Hands(10)
 
 # Inizializza la webcam
 cap = cv2.VideoCapture(0)  # 0 indica la webcam predefinita
