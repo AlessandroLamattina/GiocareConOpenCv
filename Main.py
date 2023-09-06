@@ -72,8 +72,6 @@ while cap.isOpened():
                 middle_finger_landmark = landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
                 vertical_distance = thumb_landmark.y - middle_finger_landmark.y
 
-                # Imposta il dito medio come sollevato se la distanza è sufficientemente grande
-
                 if distance > 0.2:
                     is_hand_open = 1
                 if vertical_distance > 0.1 and distance < 0.2:
