@@ -70,40 +70,27 @@ while True:
                                      (thumb_tip_landmark.y - palm_y) ** 2 +
                                      (thumb_tip_landmark.z - palm_z) ** 2)
 
-                if wrist_x > 0.6:
-                    if thumb_to_middle_distance > 0.1 and thumb_to_index_distance > 0.1 and thumb_to_ring_distance > 0.1 and thumb_to_pinky_distance > 0.1 and thumb_towrist < 0.2:
-                        lis_hand_open = 1  # aperta
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        lis_hand_open = 0  # chiusa
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance > 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        lis_hand_open = 3  # indice
-                    elif thumb_to_middle_distance > 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        lis_hand_open = 4  # medio:
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        lis_hand_open = 2  # pollice
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance > 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        lis_hand_open = 5  # anulare
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance > 0.1 and thumb_towrist < 0.2:
+                #if wrist_x > 0.6:
+
+                if thumb_to_middle_distance > 0.1 and thumb_to_index_distance > 0.1 and thumb_to_ring_distance > 0.1 and thumb_to_pinky_distance > 0.1 and thumb_towrist > 0.18:
+                    lis_hand_open = 1  # aperta
+                elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.18:
+                    lis_hand_open = 0  # chiusa
+                elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance > 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.18:
+                    lis_hand_open = 3  # indice
+                elif thumb_to_middle_distance > 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.18:
+                    lis_hand_open = 4  # medio:
+                elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist > 0.18:
+                    lis_hand_open = 2  # pollice
+                elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance > 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.18:
+                    lis_hand_open = 5  # anulare
+                elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance > 0.1 and thumb_towrist < 0.18:
                         lis_hand_open = 6  # mignolo
-                else:
-                    if thumb_to_middle_distance > 0.1 and thumb_to_index_distance > 0.1 and thumb_to_ring_distance > 0.1 and thumb_to_pinky_distance > 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 1  # aperta
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 0  # chiusa
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance > 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 3  # indice
-                    elif thumb_to_middle_distance > 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 4  # medio:
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 2  # pollice
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance > 0.1 and thumb_to_pinky_distance < 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 5  # anulare
-                    elif thumb_to_middle_distance < 0.1 and thumb_to_index_distance < 0.1 and thumb_to_ring_distance < 0.1 and thumb_to_pinky_distance > 0.1 and thumb_towrist < 0.2:
-                        is_hand_open = 6  # mignolo
-                if distanza > 0.1:
+
+                if distanza > 0.18:
                     print(distanza, "ok")
                 else:
-                    print(distanza)
+                    print(distanza, "chiuso")
 
 
             if lis_hand_open == 1:
@@ -121,7 +108,7 @@ while True:
             elif lis_hand_open == 2:
                 cv2.putText(frame, "Pollice", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-            if is_hand_open == 1:
+            """if is_hand_open == 1:
                 cv2.putText(frame, "              Mano aperta", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             elif is_hand_open == 0:
                 cv2.putText(frame, "              Mano chiusa", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
@@ -135,7 +122,7 @@ while True:
                 cv2.putText(frame, "              Mignolo", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             elif is_hand_open == 2:
                 cv2.putText(frame, "              Pollice", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-
+"""
     cv2.imshow('Hand Detection', frame)
     # Esci dal ciclo quando si preme il tasto 'q'
     if cv2.waitKey(1) & 0xFF == ord('q'):
